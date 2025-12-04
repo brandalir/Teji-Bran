@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TejiBran — Tienda</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="center-wrapper">
+        <div class="brand">
+          <a href="index.html" class="logo" aria-label="TejiBran - inicio">
+            <img src="Imagenes/LogoBlanco.png" alt="TejiBran" />
+          </a>
+          <span class="brand-text">TejiBran</span>
+        </div>
+        <nav class="main-nav center-nav" aria-label="Menú principal">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Tienda.html" aria-current="page">Tienda</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button id="cart-btn"><span class="cart-icon">🛒</span> Carrito (<span id="cart-count">0</span>)</button>
+
+        <!-- === BUSCADOR LOCAL (sin backend) === -->
+        <div class="header-search">
+          <input type="text" id="searchInput" placeholder="Buscar productos..." aria-label="Buscar productos" />
+          <button class="search-btn" id="searchBtn">Buscar</button>
+        </div>
+        <!-- Modal Detalles -->
+    <div id="modal-details" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-info"></div>
+        </div>
+    </div>
+    <!-- Modal Carrito -->
+    <div id="modal-cart" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button id="confirm-order">Confirmar Pedido</button>
+        </div>
+    </div>
+    <!-- Modal Confirmación -->
+    <div id="modal-confirm" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>¡Pedido Confirmado!</h2>
+            <p>Gracias por tu compra. Tu pedido está en proceso.</p>
+        </div>
+    </div>
+      </div>
+    </div>
+  </header>
+  <!-- Cart modal shared (same markup as index) -->
+  <div id="cart-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Cerrar carrito" data-close="true">&times;</button>
+      <div id="cart-content">
+        <h3 id="cart-modal-title">Tu carrito</h3>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+          <div class="total">Total: <span id="cart-total">Bs 0.00</span></div>
+          <div class="cart-actions">
+            <button id="continue-shopping" class="btn">Seguir comprando</button>
+            <button id="checkout-btn" class="btn btn-primary">Pagar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <h1 class="section-title">Catálogo</h1>
+    <section class="products-grid" aria-label="Lista de productos">
+      <article class="product-card" data-name="Blusa de punto con ribete" data-price="120.00">
+        <img src="https://i.pinimg.com/1200x/10/e0/c9/10e0c9ed0ba2c4e7d26dd0399796af37.jpg" alt="Blusa de punto con ribete de perlas falsas en corpiño">
+        <h3>Blusa de punto con ribete</h3>
+        <p class="price">Bs 120.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Bolsos a Crochet" data-price="90.00">
+        <img src="https://i.pinimg.com/736x/13/cd/97/13cd97a0da5c25fd6370ddd3d3568c9b.jpg" alt="Bolsos a Crochet">
+        <h3>Bolsos a Crochet</h3>
+        <p class="price">Bs 90.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Bufanda" data-price="45.00">
+        <img src="https://i.pinimg.com/1200x/1d/77/7a/1d777a74e7acdf68bf674873a42aeced.jpg" alt="Bufanda">
+        <h3>Bufanda</h3>
+        <p class="price">Bs 45.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Carteras" data-price="120.00">
+        <img src="https://i.pinimg.com/1200x/5a/8e/f0/5a8ef0c71a06579e9d6a9a24baa498b1.jpg" alt="Carteras">
+        <h3>Carteras</h3>
+        <p class="price">Bs 120.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Estuche" data-price="60.00">
+        <img src="https://i.pinimg.com/736x/16/6a/d9/166ad96c5d76ae412f44519f109b1748.jpg" alt="Estuche">
+        <h3>Estuche</h3>
+        <p class="price">Bs 60.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Gorro" data-price="70.00">
+        <img src="https://i.pinimg.com/1200x/4f/6c/f1/4f6cf17dab8a342ea7c339dc44d13b61.jpg" alt="Gorro">
+        <h3>Gorro</h3>
+        <p class="price">Bs 70.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Guantes" data-price="65.00">
+        <img src="https://i.pinimg.com/736x/66/52/24/6652247c13c9e00da95518b46c808c5b.jpg" alt="Guantes">
+        <h3>Guantes</h3>
+        <p class="price">Bs 65.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Mochila" data-price="110.00">
+        <img src="https://i.pinimg.com/736x/95/5b/2a/955b2af651e0884c02a06bfb1798bd1c.jpg" alt="Mochila">
+        <h3>Mochila</h3>
+        <p class="price">Bs 110.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Funda de Libro" data-price="40.00">
+        <img src="https://i.pinimg.com/736x/f4/d3/c9/f4d3c92b9f8744d2cf2910ca6f22f2ba.jpg" alt="Funda de Libro">
+        <h3>Funda de Libro</h3>
+        <p class="price">Bs 40.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Funda para Celular" data-price="48.00">
+        <img src="https://i.pinimg.com/736x/e7/e0/11/e7e011c621ea5d99a8b38a725664b5af.jpg" alt="Funda para Celular">
+        <h3>Funda para Celular</h3>
+        <p class="price">Bs 48.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Funda para Audifonos" data-price="60.00">
+        <img src="https://i.pinimg.com/1200x/85/60/f1/8560f1b9571160d4a0eb0d69e49167f4.jpg" alt="Funda para Audifonos">
+        <h3>Funda para Audifonos</h3>
+        <p class="price">Bs 60.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Gorrito con Orejas" data-price="85.00">
+        <img src="https://i.pinimg.com/1200x/af/36/c3/af36c30882a6227bb495b3fe5f6a1146.jpg" alt="Gorrito con Orejas">
+        <h3>Gorrito con Orejas</h3>
+        <p class="price">Bs 85.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Llavero Cafe" data-price="25.00">
+        <img src="https://i.pinimg.com/736x/5d/95/fb/5d95fb04e796382086d160d62a56a47a.jpg" alt="Llavero Cafe">
+        <h3>Llavero Cafe</h3>
+        <p class="price">Bs 25.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Polera Manga Larga" data-price="77.00">
+        <img src="https://i.pinimg.com/1200x/98/60/26/98602695dd5a48850f6bb5601de58614.jpg" alt="Polera Manga Larga">
+        <h3>Polera Manga Larga</h3>
+        <p class="price">Bs 77.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Sujetador de Toma Todo" data-price="40.00">
+        <img src="https://i.pinimg.com/736x/bd/3e/40/bd3e404ffdc3a62c9cf8dee44d75e064.jpg" alt="Sujetador de Toma Todo">
+        <h3>Sujetador de Toma Todo</h3>
+        <p class="price">Bs 40.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Top Manga Larga" data-price="90.00">
+        <img src="https://i.pinimg.com/736x/cb/c8/be/cbc8bea11c88fa57879c1d4a4a440cb0.jpg" alt="Top Manga Larga">
+        <h3>Top Manga Larga</h3>
+        <p class="price">Bs 90.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Vestido" data-price="79.00">
+        <img src="https://i.pinimg.com/736x/15/2a/b5/152ab528f8eea89fc7435ffae257844e.jpg" alt="Vestido">
+        <h3>Vestido</h3>
+        <p class="price">Bs 79.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Cartera a Crochet" data-price="92.00">
+        <img src="https://i.pinimg.com/736x/c3/29/e5/c329e5014135b802f8d60fa9af9fcea8.jpg" alt="Cartera a Crochet">
+        <h3>Cartera a Crochet</h3>
+        <p class="price">Bs 92.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Conjunto de Verano" data-price="150.00">
+        <img src="https://i.pinimg.com/736x/c0/ab/18/c0ab18b220aa312fbe2c40fc8c631620.jpg" alt="Conjunto de Verano">
+        <h3>Conjunto de Verano</h3>
+        <p class="price">Bs 150.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+      <article class="product-card" data-name="Llavero de gatitos" data-price="40.00">
+        <img src="https://i.pinimg.com/736x/d1/f3/1c/d1f31cf2f10d8711a6bc14722ae46251.jpg" alt="Llavero de gatitos">
+        <h3>Llavero de gatitos</h3>
+        <p class="price">Bs 40.00</p>
+        <button class="btn add-to-cart">Añadir al carrito</button>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="tagline">Aprende a tejer con Brandali Rioja.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Tienda.html">Tienda</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>Email: <a href="mailto:info@tejibran.com">info@tejibran.com</a></li>
+            <li>Tel: +591 77430235</li>
+          </ul>
+        </div>
+
+        <div class="col newsletter">
+          <h4>Newsletter</h4>
+          <p>Suscríbete para ofertas.</p>
+          <form id="newsletter-form">
+            <input type="text" name="name" placeholder="Nombre" required />
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <button class="btn btn-primary" type="submit">Suscribir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> TejiBran — Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/JavaScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TejiBran — Blog</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="Imagenes/LogoBlanco.png" alt="TejiBran"/></a>
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="Tienda.html">Tienda</a></li>
+          <li><a href="Blog.html" aria-current="page">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="cart-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Cerrar carrito" data-close="true">&times;</button>
+      <div id="cart-content">
+        <h3 id="cart-modal-title">Tu carrito</h3>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+          <div class="total">Total: <span id="cart-total">Bs 0.00</span></div>
+          <div class="cart-actions">
+            <button id="continue-shopping" class="btn">Seguir comprando</button>
+            <button id="checkout-btn" class="btn btn-primary">Pagar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <h1 class="section-title">Blog</h1>
+
+    <!-- Layout de dos columnas; cada columna contiene 2 tarjetas (total 4) -->
+    <section class="blog-columns">
+      <div class="col">
+        <article class="card blog-card">
+          <img src="https://i.pinimg.com/736x/c7/e8/17/c7e8178b5fb72062f7d343f5d1b67d0e.jpg" alt="Cómo elegir lana">
+          <h3>Cómo elegir lana</h3>
+          <p>Consejos para seleccionar fibras según tus proyectos y clima.</p>
+        </article>
+
+        <article class="card blog-card">
+          <img src="https://i.pinimg.com/736x/57/79/00/577900cf76601d85a3418b08f7923c4f.jpg" alt="Guía de tallas">
+          <h3>Guía de tallas</h3>
+          <p>Aprende a medir y adaptar patrones a tu medida.</p>
+        </article>
+      </div>
+
+      <div class="col">
+        <article class="card blog-card">
+          <img src="https://i.pinimg.com/736x/92/2a/66/922a6644b1925a157468982b2398f629.jpg" alt="Puntos básicos">
+          <h3>Puntos básicos</h3>
+          <p>Vídeo y paso a paso de los puntos más usados.</p>
+        </article>
+
+        <article class="card blog-card">
+          <img src="https://i.pinimg.com/736x/67/76/48/6776486cd606b72a1e5492957fc407f9.jpg" alt="Cuidado de prendas">
+          <h3>Cuidado de prendas</h3>
+          <p>Cómo lavar y conservar tejidos con cariño.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="tagline">Aprende a tejer con Brandali Rioja.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+          <li><a href="Tienda.html">Tienda</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>Email: <a href="mailto:info@tejibran.com">info@tejibran.com</a></li>
+            <li>Tel: +591 7X XXX XXX</li>
+          </ul>
+        </div>
+
+        <div class="col newsletter">
+          <h4>Newsletter</h4>
+          <p>Suscríbete para ofertas.</p>
+          <form id="newsletter-form">
+            <input type="text" name="name" placeholder="Nombre" required />
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <button class="btn btn-primary" type="submit">Suscribir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> TejiBran — Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/JavaScript.js"></script>
+</body>
+</html>
